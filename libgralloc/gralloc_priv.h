@@ -52,6 +52,9 @@ enum {
      * cannot be used with noncontiguous heaps */
     GRALLOC_USAGE_PRIVATE_UNCACHED        =       0x02000000,
 
+    /* Buffer content should be displayed on an primary display only */
+    GRALLOC_USAGE_PRIVATE_INTERNAL_ONLY   =       0x04000000,
+
     /* This flag can be set to disable genlock synchronization
      * for the gralloc buffer. If this flag is set the caller
      * is required to perform explicit synchronization.
@@ -84,6 +87,10 @@ enum {
      */
     GRALLOC_USAGE_PRIVATE_ADSP_HEAP       =       0x0,
     GRALLOC_USAGE_PRIVATE_SMI_HEAP        =       0x0,
+
+    /* This flag is used for SECURE display usecase */
+    GRALLOC_USAGE_PRIVATE_SECURE_DISPLAY  =       0x00800000,
+
 #else
     /* ADSP heap is deprecated, use only if using pmem */
     GRALLOC_USAGE_PRIVATE_ADSP_HEAP       =       GRALLOC_USAGE_PRIVATE_0,
@@ -101,8 +108,12 @@ enum {
     GRALLOC_USAGE_PRIVATE_MM_HEAP         =       0x02000000,
     /* WRITEBACK heap is a carveout heap for writeback, can be secured*/
     GRALLOC_USAGE_PRIVATE_WRITEBACK_HEAP  =       0x04000000,
+    /* Buffer content should be displayed on an primary display only */
+    GRALLOC_USAGE_PRIVATE_INTERNAL_ONLY   =       0x04000000,
     /* CAMERA heap is a carveout heap for camera, is not secured*/
     GRALLOC_USAGE_PRIVATE_CAMERA_HEAP     =       0x08000000,
+    /* This flag is used for SECURE display usecase */
+    GRALLOC_USAGE_PRIVATE_SECURE_DISPLAY  =       0x00800000,
 
     /* Set this for allocating uncached memory (using O_DSYNC)
      * cannot be used with noncontiguous heaps */
