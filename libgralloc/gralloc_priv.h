@@ -30,9 +30,6 @@
 
 #include <cutils/log.h>
 
-#define ROUND_UP_PAGESIZE(x) ( (((unsigned long)(x)) + PAGE_SIZE-1)  & \
-                               (~(PAGE_SIZE-1)) )
-
 enum {
     /* gralloc usage bits indicating the type
      * of allocation that should be used */
@@ -256,7 +253,6 @@ struct private_handle_t : public native_handle {
         int     fd;
         // genlock handle to be dup'd by the binder
         int     genlockHandle;
-	int     fd_metadata;          // fd for the meta-data
         // ints
         int     magic;
         int     flags;
